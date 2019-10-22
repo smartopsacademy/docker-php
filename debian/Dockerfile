@@ -3,21 +3,15 @@ MAINTAINER SmartOps Academy <docker@smartops.academy>
 
 RUN apt update \
  && apt -y full-upgrade \
- && apt install -y zip unzip htop \
- && apt install -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev
+ && apt install -y zip unzip htop bzip2 curl libpng-tools libpng16-16 librecode0 libzip4 lsb-base \
+ && apt install -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev libbz2-dev libcurl4-gnutls-dev librecode-dev
 RUN docker-php-source extract \
  && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
- && docker-php-ext-install mysqli opcache gd bcmath soap zip \
- && docker-php-ext-enable mysqli opcache gd bcmath soap zip
+ && docker-php-ext-install bcmath bz2 curl gd gettext mysqli opcache recode session soap zip exif \
+ && docker-php-ext-enable bcmath bz2 curl gd gettext mysqli opcache recode session soap zip exif
 RUN pecl install redis \
  && docker-php-ext-enable redis
-RUN cd /usr/src \
- && curl -o /usr/src/ioncube_loaders_lin_x86-64.tar.gz https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
- && tar xzf ioncube_loaders_lin_x86-64.tar.gz \
- && cp ioncube/ioncube_loader_lin_7.3.so /usr/local/lib/php/extensions/no-debug-non-zts-*/ \
- && rm -rf ioncube* \
- && docker-php-ext-enable ioncube_loader_lin_7.3
-RUN apt purge -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev \
+RUN apt purge -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev libbz2-dev libcurl4-gnutls-dev librecode-dev \
  && apt install -y libcurl3-gnutls liberror-perl libexpat1 libjpeg62-turbo libpopt0 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 \
  && apt-get --purge -y autoremove \
  && apt-get clean \
