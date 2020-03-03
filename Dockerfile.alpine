@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine
+FROM php:7.4-fpm-alpine
 MAINTAINER SmartOps Academy <docker@smartops.academy>
 
 RUN apk update \
