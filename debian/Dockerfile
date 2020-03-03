@@ -17,7 +17,7 @@ RUN apt purge -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev libbz2-de
  && apt-get clean \
  && docker-php-source delete
 
-COPY ../etc/ /usr/local/etc/
+COPY etc/ /usr/local/etc/
 COPY entrypoint.sh /
 
 CMD ["/entrypoint.sh"]

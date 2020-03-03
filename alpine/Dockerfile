@@ -22,6 +22,6 @@ RUN sed -i 's/www-data:x:82:82:/www-data:x:33:33:/' /etc/passwd \
  && sed -i 's/www-data:x:82:www-data/www-data:x:33:www-data/' /etc/group \
  && sed -i 's/xfs:x:33:xfs/xfs:x:82:xfs/' /etc/group
 
-COPY ../etc/ /usr/local/etc/
+COPY etc/ /usr/local/etc/
 
 CMD ["/usr/local/sbin/php-fpm", "-F"]
