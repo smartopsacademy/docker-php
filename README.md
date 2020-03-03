@@ -2,7 +2,6 @@
 
 For training purposes!
 
-PHP 7.3 + phpredis + Worldpress related modules
-Requires wordfence-waf in docroot!
+PHP 7.3 + phpredis + WordPress related modules
 
 LICENSE: CC-BY-SA
