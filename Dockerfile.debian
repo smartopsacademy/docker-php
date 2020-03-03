@@ -18,6 +18,6 @@ RUN apt purge -y libjpeg62-turbo-dev libpng-dev libxml2-dev libzip-dev libbz2-de
  && docker-php-source delete
 
 COPY etc/ /usr/local/etc/
-COPY entrypoint.sh /
+COPY Debian-entrypoint.sh /entrypoint.sh
 
 CMD ["/entrypoint.sh"]
