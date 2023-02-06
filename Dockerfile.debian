@@ -1,5 +1,4 @@
-FROM php:8.0-fpm
-MAINTAINER SmartOps Academy <docker@smartops.academy>
+FROM php:8.1-fpm
 
 RUN apt update \
  && apt -y full-upgrade \
